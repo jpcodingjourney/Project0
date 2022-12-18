@@ -7,24 +7,44 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  background-image: url(/image1/6254026.png);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(158, 228, 18);
+  font-style: italic;
+  font-weight: 900;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: rgb(88, 102, 194);
-  gap: 10px;
-  padding: 10px;
+  background-color: rgb(106, 20, 255);
 }
 
 .slot {
-  background-color: darkturquoise;
-  border: 1px solid black;
-  width: 100px;
-  height: 100px;
-  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  width: 150px;
+  height: 150px;
+}
+
+.mario {
+  background-position: center;
+  background-image: url(/image1/Ph03nyx-Super-Mario-Paper-Mario.ico);
+  background-size: cover;
+  background-color: rgb(254, 38, 38);
+}
+
+.yoshi {
+  background-position: center;
+  background-image: url(/image1/92627-toy-computer-island-wallpaper-woolly-mario-yoshi.png);
+  background-size: cover;
+  background-color: rgb(0, 255, 30);
 }
 
 .slot1 {
@@ -70,4 +90,18 @@ body {
 .slot9 {
   grid-column: 3;
   grid-row: 3;
+}
+
+.reset-game {
+  display: block;
+  margin: 0 0 0 -1100px;
+  font-size: 18px;
+  text-align: center;
+  background-color: rgb(217, 145, 38);
+  width: 120px;
+  height: 50px;
+}
+
+.reset-game:hover {
+  background-color: rgb(172, 216, 51);
 }
