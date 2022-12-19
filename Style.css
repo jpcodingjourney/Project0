@@ -47,47 +47,47 @@ h1 {
   background-color: rgb(0, 255, 30);
 }
 
-.slot1 {
+[class="1slot"] {
   grid-column: 1;
   grid-row: 1;
 }
 
-.slot2 {
+[class="2slot"] {
   grid-column: 2;
   grid-row: 1;
 }
 
-.slot3 {
+[class="3slot"] {
   grid-column: 3;
   grid-row: 1;
 }
 
-.slot4 {
+[class="4slot"] {
   grid-column: 1;
   grid-row: 2;
 }
 
-.slot5 {
+[class="5slot"] {
   grid-column: 2;
   grid-row: 2;
 }
 
-.slot6 {
+[class="6slot"] {
   grid-column: 3;
   grid-row: 2;
 }
 
-.slot7 {
+[class="7slot"] {
   grid-column: 1;
   grid-row: 3;
 }
 
-.slot8 {
+[class="8slot"] {
   grid-column: 2;
   grid-row: 3;
 }
 
-.slot9 {
+[class="9slot"] {
   grid-column: 3;
   grid-row: 3;
 }
@@ -103,5 +103,5 @@ h1 {
 }
 
 .reset-game:hover {
-  background-color: rgb(172, 216, 51);
+  background-color: rgb(221, 207, 22);
 }
