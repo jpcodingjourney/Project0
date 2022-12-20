@@ -10,7 +10,7 @@ body {
   background-image: url(/image1/6254026.png);
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -24,13 +24,15 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: rgb(106, 20, 255);
+  background-color: rgb(55, 133, 249);
+  border: 20px solid #204cdd74;
+  border-radius: 20px;
 }
 
 .slot {
   border: 1px solid rgb(255, 255, 255);
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
 }
 
 .mario {
@@ -104,4 +106,24 @@ h1 {
 
 .reset-game:hover {
   background-color: rgb(221, 207, 22);
+}
+
+#marioicon {
+  position: absolute;
+  width: 300px;
+  height: 350px;
+  top: 150px;
+  left: 100px;
+  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#yoshiicon {
+  position: absolute;
+  width: 300px;
+  height: 350px;
+  top: 150px;
+  right: 100px;
+  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }

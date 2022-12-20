@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
-    <title>Tic Tac Toe</title>
+    <title>Mario TicTacToe</title>
   </head>
   <body>
-    <h1>Play Tic Tac Toe</h1>
+    <h1>Mario TicTacToe</h1>
 
     <br />
-    <div class="container">
+    <div class="container" id="container">
       <div class="slot 1slot"></div>
       <div class="slot 2slot"></div>
       <div class="slot 3slot"></div>
@@ -23,6 +23,18 @@
       <div class="slot 9slot"></div>
     </div>
 
+    <div id="gifContainer">
+      <img
+        id="marioicon"
+        src="/image1/Ph03nyx-Super-Mario-Paper-Mario.ico"
+        style="display: none"
+      />
+      <img
+        id="yoshiicon"
+        src="/image1/92627-toy-computer-island-wallpaper-woolly-mario-yoshi.png"
+        style="display: none"
+      />
+    </div>
     <button class="reset-game">Reset Game</button>
 
     <script src="/script.js"></script>
