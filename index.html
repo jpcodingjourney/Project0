@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/x-icon" href="/image/mario.ico" />
     <title>Mario TicTacToe</title>
   </head>
   <body>
-    <h1>Mario TicTacToe</h1>
+    <h1 class="gametitle" id="gametitle">Mario TicTacToe</h1>
 
     <br />
     <div class="container" id="container">
@@ -24,19 +25,93 @@
     </div>
 
     <div id="gifContainer">
+      <img id="marioicon" src="/image/mario.ico" style="display: none" />
+      <img id="yoshiicon" src="/image/yoshi.png" style="display: none" />
       <img
-        id="marioicon"
-        src="/image1/Ph03nyx-Super-Mario-Paper-Mario.ico"
+        id="redmushroomicon"
+        src="/image/redmushroom.ico"
         style="display: none"
       />
-      <img
-        id="yoshiicon"
-        src="/image1/92627-toy-computer-island-wallpaper-woolly-mario-yoshi.png"
-        style="display: none"
-      />
-    </div>
-    <button class="reset-game">Reset Game</button>
 
+      <div class="player mrmario" id="mrmario"><h2>Mario</h2></div>
+
+      <div class="player mryoshi" id="mryoshi"><h2>Yoshi</h2></div>
+
+      <img
+        id="greenmushroomicon"
+        src="/image/greenmushroom.png"
+        style="display: none"
+      />
+      <img id="staricon" src="/image/Star-icon.png" style="display: none" />
+      <img
+        id="fireflowericon"
+        src="/image/Flower-Fire-icon.png"
+        style="display: none"
+      />
+
+      <img id="booicon" src="/image/Boo-icon.png" style="display: none" />
+      <img
+        id="bloopericon"
+        src="/image/Blooper-icon.png"
+        style="display: none"
+      />
+      <img id="lakituicon" src="/image/Lakitu-icon.png" style="display: none" />
+    </div>
+
+    <div class="alertbox" id="alertbox1">
+      <p>Mario WON! Let's play again!</p>
+      <button class="okbutton" id="okbutton1">❤️❤️❤️❤️</button>
+    </div>
+
+    <div class="alertbox" id="alertbox2">
+      <p>Yoshi WON! Let's play again!</p>
+      <button class="okbutton" id="okbutton2">❤️❤️❤️❤️</button>
+    </div>
+
+    <div class="alertbox" id="alertbox3">
+      <p>It's a DRAW! Let's play again!</p>
+      <button class="okbutton" id="okbutton3">❤️❤️❤️❤️</button>
+    </div>
+
+    <div class="alertbox" id="alertbox4">
+      <p>Are you ready? Let's go!</p>
+      <button class="okbutton" id="okbutton4">❤️❤️❤️❤️</button>
+    </div>
+
+    <audio id="mariosound">
+      <source src="/sound/smb_jump-small.wav" type="audio/ogg" />
+    </audio>
+
+    <audio id="yoshisound">
+      <source src="/sound/smb_jump-super.wav" type="audio/ogg" />
+    </audio>
+
+    <audio id="winsound">
+      <source src="/sound/smb_stage_clear.wav" type="audio/ogg" />
+    </audio>
+
+    <audio id="onemoregamesound">
+      <source src="/sound/smb_1-up.wav" type="audio/ogg" />
+    </audio>
+
+    <audio id="drawsound">
+      <source src="/sound/smw_course_clear.wav" type="audio/ogg" />
+    </audio>
+
+    <audio id="titlesound">
+      <source src="/sound/1 03 Underwater.mp3" type="audio/ogg" />
+    </audio>
+
+    <audio id="clickmariosound">
+      <source src="/sound/smb_coin.wav" type="audio/ogg" />
+    </audio>
+
+    <audio id="clickyoshisound">
+      <source src="/sound/smb_stomp.wav" type="audio/ogg" />
+    </audio>
+    <div class="resetbutton" id="resettbuton">
+      <button class="resetgame" id="resetgame">Reset Button</button>
+    </div>
     <script src="/script.js"></script>
   </body>
 </html>

@@ -10,16 +10,11 @@ const winCombo = [
   [1, 5, 9],
   [3, 5, 7],
 ];
-const marioIcon = document.getElementById("marioicon");
-const yoshiIcon = document.getElementById("yoshiicon");
 function moveGif(gifName) {
-  // Measure the sizes of the brower and the gif, make sure the gif stays within the screen
+  // Measure the sizes of the browzer and the gif, make sure the gif stays within the screen
   const gifRect = gifName.getBoundingClientRect();
   let gifHeight = gifRect.height;
   let gifWidth = gifRect.width;
-  //Set the number of times the img should move
-  const counterLimit = 10;
-  let moveCounter = 0;
   function move() {
     // Generate random new position for the GIF
     gifName.style.top = `${Math.floor(
@@ -28,20 +23,214 @@ function moveGif(gifName) {
     gifName.style.left = `${Math.floor(
       Math.random() * (window.innerWidth - gifWidth)
     )}px`;
-    moveCounter++;
-    if (moveCounter < counterLimit) {
-      setTimeout(move, 500);
-    }
   }
   move();
 }
+
+//Add alert boxes and events for ending
+const alertBox1 = document.getElementById("alertbox1");
+const alertBox2 = document.getElementById("alertbox2");
+const alertBox3 = document.getElementById("alertbox3");
+const okButton1 = document.getElementById("okbutton1");
+const okButton2 = document.getElementById("okbutton2");
+const okButton3 = document.getElementById("okbutton3");
+const callContainer = document.getElementById("container");
+const callResetButton = document.getElementById("resetgame");
+function showModal1() {
+  alertBox1.style.display = "block";
+  hideContainer();
+  hideResetButton();
+  hidegameTitle();
+}
+
+function showModal2() {
+  alertBox2.style.display = "block";
+  hideContainer();
+  hideResetButton();
+  hidegameTitle();
+}
+
+function showModal3() {
+  alertBox3.style.display = "block";
+  hideContainer();
+  hideResetButton();
+  hidegameTitle();
+}
+
+function hideModal1() {
+  alertBox1.style.display = "none";
+  onemoregameSound.play();
+  showContainer();
+  showResetButton();
+  showGameTitle();
+}
+
+function hideModal2() {
+  alertBox2.style.display = "none";
+  onemoregameSound.play();
+  showContainer();
+  showResetButton();
+  showGameTitle();
+}
+
+function hideModal3() {
+  alertBox3.style.display = "none";
+  onemoregameSound.play();
+  showContainer();
+  showResetButton();
+  showGameTitle();
+}
+
+function hideContainer() {
+  callContainer.style.display = "none";
+}
+
+function showContainer() {
+  callContainer.style.display = "grid";
+}
+
+function hideResetButton() {
+  callResetButton.style.display = "none";
+}
+
+function showResetButton() {
+  callResetButton.style.display = "block";
+}
+
+function hidegameTitle() {
+  gameTitle.style.display = "none";
+}
+
+function showGameTitle() {
+  gameTitle.style.display = "block";
+}
+
+okButton1.addEventListener("click", hideModal1);
+okButton2.addEventListener("click", hideModal2);
+okButton3.addEventListener("click", hideModal3);
+
+//Add sound effects
+const marioSound = document.querySelector("#mariosound");
+marioSound.volume = 0.3;
+const yoshiSound = document.querySelector("#yoshisound");
+yoshiSound.volume = 0.3;
+const winSound = document.querySelector("#winsound");
+winSound.volume = 0.3;
+const onemoregameSound = document.querySelector("#onemoregamesound");
+onemoregameSound.volume = 0.3;
+const titleSound = document.querySelector("#titlesound");
+titleSound.volume = 0.3;
+const clickMarioSound = document.querySelector("#clickmariosound");
+clickMarioSound.volume = 0.3;
+const clickYoshiSound = document.querySelector("#clickyoshisound");
+clickYoshiSound.volume = 0.7;
+
+//Do not lower the volume for drawSound as it's already low
+const drawSound = document.querySelector("#drawsound");
+
+//Click Mario and Yoshi will play sound effects
+const mrMario = document.querySelector("#mrmario");
+mrMario.addEventListener("click", function () {
+  clickMarioSound.play();
+});
+
+const mrYoshi = document.querySelector("#mryoshi");
+mrYoshi.addEventListener("click", function () {
+  clickYoshiSound.play();
+});
+
+//Click game title will play some mario music and surprise!
+const gameTitle = document.getElementById("gametitle");
+gameTitle.addEventListener("click", function () {
+  titleSound.play();
+  document.getElementById("marioicon").style.display = "flex";
+  marioInterval = setInterval(moveGif, 500, marioIcon);
+  document.getElementById("yoshiicon").style.display = "flex";
+  yoshiInterval = setInterval(moveGif, 500, yoshiIcon);
+  document.getElementById("redmushroomicon").style.display = "flex";
+  redMushroomInterval = setInterval(moveGif, 500, redMushroomIcon);
+  document.getElementById("greenmushroomicon").style.display = "flex";
+  greenMushroomInterval = setInterval(moveGif, 500, greenMushroomIcon);
+  document.getElementById("staricon").style.display = "flex";
+  starInterval = setInterval(moveGif, 500, starIcon);
+  document.getElementById("fireflowericon").style.display = "flex";
+  fireFlowerInterval = setInterval(moveGif, 500, fireFlowerIcon);
+  document.getElementById("booicon").style.display = "flex";
+  booInterval = setInterval(moveGif, 500, booIcon);
+  document.getElementById("bloopericon").style.display = "flex";
+  blooperInterval = setInterval(moveGif, 500, blooperIcon);
+  document.getElementById("lakituicon").style.display = "flex";
+  lakituInterval = setInterval(moveGif, 500, lakituIcon);
+  const resetInterval = setInterval(function () {
+    clearInterval(marioInterval);
+    clearInterval(yoshiInterval);
+    clearInterval(redMushroomInterval);
+    clearInterval(greenMushroomInterval);
+    clearInterval(starInterval);
+    clearInterval(fireFlowerInterval);
+    clearInterval(booInterval);
+    clearInterval(blooperInterval);
+    clearInterval(lakituInterval);
+    const icons = [
+      "marioicon",
+      "yoshiicon",
+      "redmushroomicon",
+      "greenmushroomicon",
+      "staricon",
+      "fireflowericon",
+      "booicon",
+      "bloopericon",
+      "lakituicon",
+    ].map((id) => document.getElementById(id));
+    for (const icon of icons) {
+      icon.style.display = "none";
+    }
+    clearInterval(resetInterval);
+  }, 118000);
+});
+
+//Set up moving images
+const marioIcon = document.getElementById("marioicon");
+const yoshiIcon = document.getElementById("yoshiicon");
+const redMushroomIcon = document.getElementById("redmushroomicon");
+const greenMushroomIcon = document.getElementById("greenmushroomicon");
+const starIcon = document.getElementById("staricon");
+const fireFlowerIcon = document.getElementById("fireflowericon");
+const booIcon = document.getElementById("booicon");
+const blooperIcon = document.getElementById("bloopericon");
+const lakituIcon = document.getElementById("lakituicon");
+
+//Game function
 const gameStart = function () {
+  let gameEnded = false;
   let marioComboCheck = [];
   let yoshiComboCheck = [];
   let gameTurn = 1;
-  let gameEnded = false;
   marioInterval = null;
   yoshiInterval = null;
+  redMushroomInterval = null;
+  greenMushroomInterval = null;
+  starInterval = null;
+  fireFlowerInterval = null;
+  booInterval = null;
+  blooperInterval = null;
+  lakituInterval = null;
+
+  const icons = [
+    "marioicon",
+    "yoshiicon",
+    "redmushroomicon",
+    "greenmushroomicon",
+    "staricon",
+    "fireflowericon",
+    "booicon",
+    "bloopericon",
+    "lakituicon",
+  ].map((id) => document.getElementById(id));
+  for (const icon of icons) {
+    icon.style.display = "none";
+  }
+
   document.querySelectorAll(".slot").forEach((slot) =>
     slot.addEventListener("click", (e) => {
       if (
@@ -49,12 +238,15 @@ const gameStart = function () {
         !slot.classList.contains("mario") &&
         !slot.classList.contains("yoshi")
       ) {
+        //Check win combo
         let target = e.target;
         if (target.classList.contains("mario", "yoshi") === false) {
           if (gameTurn % 2 !== 0) {
+            marioSound.play();
             target.classList.add("mario");
             marioComboCheck.push(parseInt(target.classList[1]));
           } else {
+            yoshiSound.play();
             target.classList.add("yoshi");
             yoshiComboCheck.push(parseInt(target.classList[1]));
           }
@@ -65,41 +257,96 @@ const gameStart = function () {
             const checkYoshi = winCombo[i].every((value) => {
               return yoshiComboCheck.includes(value);
             });
+            //Check winner
             const checkForWinner = function () {
               if (checkMario && !gameEnded) {
                 gameEnded = true;
+                winSound.play();
                 document.getElementById("marioicon").style.display = "flex";
                 marioInterval = setInterval(moveGif, 500, marioIcon);
+                document.getElementById("redmushroomicon").style.display =
+                  "flex";
+                redMushroomInterval = setInterval(
+                  moveGif,
+                  500,
+                  redMushroomIcon
+                );
+                document.getElementById("greenmushroomicon").style.display =
+                  "flex";
+                greenMushroomInterval = setInterval(
+                  moveGif,
+                  500,
+                  greenMushroomIcon
+                );
+                document.getElementById("staricon").style.display = "flex";
+                starInterval = setInterval(moveGif, 500, starIcon);
+                document.getElementById("fireflowericon").style.display =
+                  "flex";
+                fireFlowerInterval = setInterval(moveGif, 500, fireFlowerIcon);
                 const resetInterval = setInterval(function () {
-                  alert("Player 1 won! Let's play again!");
-                  resetGame();
+                  showModal1();
                   clearInterval(resetInterval);
-                }, 5100);
+                  resetGame();
+                }, 5500);
               }
               if (checkYoshi && !gameEnded) {
                 gameEnded = true;
+                winSound.play();
                 document.getElementById("yoshiicon").style.display = "flex";
                 yoshiInterval = setInterval(moveGif, 500, yoshiIcon);
+                document.getElementById("redmushroomicon").style.display =
+                  "flex";
+                redMushroomInterval = setInterval(
+                  moveGif,
+                  500,
+                  redMushroomIcon
+                );
+                document.getElementById("greenmushroomicon").style.display =
+                  "flex";
+                greenMushroomInterval = setInterval(
+                  moveGif,
+                  500,
+                  greenMushroomIcon
+                );
+                document.getElementById("staricon").style.display = "flex";
+                starInterval = setInterval(moveGif, 500, starIcon);
+                document.getElementById("fireflowericon").style.display =
+                  "flex";
+                fireFlowerInterval = setInterval(moveGif, 500, fireFlowerIcon);
                 const resetInterval = setInterval(function () {
-                  alert("Player 2 won! Let's play again!");
-                  resetGame();
+                  showModal2();
                   clearInterval(resetInterval);
-                }, 5100);
+                  resetGame();
+                }, 5500);
               }
             };
             checkForWinner();
           }
+          //Check draw
           if (gameTurn === maxSlots && !gameEnded) {
             gameEnded = true;
+            drawSound.play();
             document.getElementById("marioicon").style.display = "flex";
             marioInterval = setInterval(moveGif, 500, marioIcon);
             document.getElementById("yoshiicon").style.display = "flex";
             yoshiInterval = setInterval(moveGif, 500, yoshiIcon);
+            document.getElementById("redmushroomicon").style.display = "flex";
+            redMushroomInterval = setInterval(moveGif, 500, redMushroomIcon);
+            document.getElementById("greenmushroomicon").style.display = "flex";
+            greenMushroomInterval = setInterval(
+              moveGif,
+              500,
+              greenMushroomIcon
+            );
+            document.getElementById("staricon").style.display = "flex";
+            starInterval = setInterval(moveGif, 500, starIcon);
+            document.getElementById("fireflowericon").style.display = "flex";
+            fireFlowerInterval = setInterval(moveGif, 500, fireFlowerIcon);
             const resetInterval = setInterval(function () {
-              alert("It's a draw! Let's play again!");
-              resetGame();
+              showModal3();
               clearInterval(resetInterval);
-            }, 5100);
+              resetGame();
+            }, 7500);
           }
         } else {
           e.stopPropagation();
@@ -111,23 +358,23 @@ const gameStart = function () {
 };
 gameStart();
 
-const resetGame = function () {
+function resetGame() {
   gameEnded = true;
   marioComboCheck = [];
   yoshiComboCheck = [];
-  gameTurn = 1;
-  clearInterval(marioInterval);
-  clearInterval(yoshiInterval);
-  document.querySelectorAll(".slot").forEach((slot) => {
+  let slots = document.querySelectorAll(".slot");
+  for (let i = 0; i < maxSlots; i++) {
+    let slot = slots[i];
     slot.classList.remove("mario");
     slot.classList.remove("yoshi");
-  });
-  document.getElementById("marioicon").style.display = "none";
-  document.getElementById("yoshiicon").style.display = "none";
-  gameStart();
-};
+    slot.innerHTML = "";
+  }
 
+  gameStart();
+  titleSound.pause();
+}
+//Reset button
 const resetButton = function () {
   window.location.reload();
 };
-document.querySelector(".reset-game").onclick = resetButton;
+document.querySelector("#resetgame").onclick = resetButton;

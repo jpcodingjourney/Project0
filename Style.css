@@ -7,105 +7,169 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(/image1/6254026.png);
   background-size: cover;
   background-position: center;
-  margin-bottom: 40px;
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0),
+    rgb(250, 136, 6),
+    rgb(105, 241, 97),
+    rgb(18, 255, 6)
+  );
 }
 
-h1 {
+.gametitle {
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(158, 228, 18);
+  color: rgb(180, 89, 255);
   font-style: italic;
   font-weight: 900;
+  font-size: 4em;
+  margin: 0.4em 0 0 0;
+  border: 5px solid rgb(255, 247, 0);
+  box-shadow: 5px 5px 5px rgba(251, 222, 37, 0.5);
+  background: linear-gradient(to right, #ff0000, #ff6f00, #fb02fb, #3cbdf9);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.gametitle:hover {
+  font-size: 4.5em;
+  cursor: grab;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: rgb(55, 133, 249);
-  border: 20px solid #204cdd74;
+  background-color: rgb(232, 234, 102);
+  border: 20px solid #8baa0f17;
   border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(147, 173, 63);
+  margin-top: 2em;
 }
 
 .slot {
   border: 1px solid rgb(255, 255, 255);
-  width: 130px;
-  height: 130px;
+  width: 8em;
+  height: 8em;
+}
+
+.slot:hover {
+  cursor: pointer;
+  background-color: rgb(101, 255, 229);
+}
+
+.player {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.mrmario {
+  grid-column: 1;
+  grid-row: 1;
+  position: absolute;
+  left: 4em;
+  top: 30%;
+  width: 12em;
+  height: 12em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/image/mario.ico");
+}
+
+.mrmario:hover {
+  cursor: pointer;
+  width: 12em;
+  height: 13em;
+}
+
+.mrmario h2 {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  left: 3em;
+  top: 8em;
+  color: white;
+}
+
+.mryoshi {
+  grid-column: 1;
+  grid-row: 1;
+  position: absolute;
+  right: 4em;
+  top: 26%;
+  width: 12em;
+  height: 15.5em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("/image/yoshi.png");
+}
+
+.mryoshi:hover {
+  cursor: pointer;
+  width: 12em;
+  height: 16.5em;
+}
+
+.mryoshi h2 {
+  grid-column: 1;
+  grid-row: 1;
+  position: absolute;
+  left: 3em;
+  top: 9em;
+  color: white;
 }
 
 .mario {
   background-position: center;
-  background-image: url(/image1/Ph03nyx-Super-Mario-Paper-Mario.ico);
+  background-image: url(/image/mario.ico);
   background-size: cover;
-  background-color: rgb(254, 38, 38);
 }
 
 .yoshi {
   background-position: center;
-  background-image: url(/image1/92627-toy-computer-island-wallpaper-woolly-mario-yoshi.png);
+  background-image: url(/image/yoshi.png);
   background-size: cover;
-  background-color: rgb(0, 255, 30);
 }
 
 [class="1slot"] {
   grid-column: 1;
   grid-row: 1;
 }
-
 [class="2slot"] {
   grid-column: 2;
   grid-row: 1;
 }
-
 [class="3slot"] {
   grid-column: 3;
   grid-row: 1;
 }
-
 [class="4slot"] {
   grid-column: 1;
   grid-row: 2;
 }
-
 [class="5slot"] {
   grid-column: 2;
   grid-row: 2;
 }
-
 [class="6slot"] {
   grid-column: 3;
   grid-row: 2;
 }
-
 [class="7slot"] {
   grid-column: 1;
   grid-row: 3;
 }
-
 [class="8slot"] {
   grid-column: 2;
   grid-row: 3;
 }
-
 [class="9slot"] {
   grid-column: 3;
   grid-row: 3;
-}
-
-.reset-game {
-  display: block;
-  margin: 0 0 0 -1100px;
-  font-size: 18px;
-  text-align: center;
-  background-color: rgb(217, 145, 38);
-  width: 120px;
-  height: 50px;
-}
-
-.reset-game:hover {
-  background-color: rgb(221, 207, 22);
 }
 
 #marioicon {
@@ -114,16 +178,153 @@ h1 {
   height: 350px;
   top: 150px;
   left: 100px;
-  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: all 1s cubic-bezier(0.275, 0.42, 0.265, 1);
+  transition: all 1s cubic-bezier(0.275, 0.42, 0.265, 1);
 }
-
 #yoshiicon {
   position: absolute;
   width: 300px;
   height: 350px;
   top: 150px;
   right: 100px;
-  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: all 1s cubic-bezier(0.275, 0.42, 0.265, 1);
+  transition: all 1s cubic-bezier(0.275, 0.42, 0.265, 1);
+}
+
+#redmushroomicon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 75px;
+  right: 105px;
+  -webkit-transition: all 1s cubic-bezier(0.175, 0.1, 0.165, 1);
+  transition: all 1s cubic-bezier(0.175, 0.1, 0.165, 1);
+}
+
+#greenmushroomicon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  right: 50px;
+  -webkit-transition: all 1s cubic-bezier(0.175, 0.1, 0.265, 1);
+  transition: all 1s cubic-bezier(0.175, 0.1, 0.265, 1);
+}
+
+#staricon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 75px;
+  left: 150px;
+  -webkit-transition: all 1s cubic-bezier(0.375, 0.4, 0.165, 1);
+  transition: all 1s cubic-bezier(0.375, 0.4, 0.165, 1);
+}
+
+#fireflowericon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 25px;
+  left: 25px;
+  -webkit-transition: all 1s cubic-bezier(0.375, 0.4, 0.365, 1);
+  transition: all 1s cubic-bezier(0.375, 0.4, 0.365, 1);
+}
+
+#booicon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 35px;
+  right: 85px;
+  -webkit-transition: all 1s cubic-bezier(0.375, 0.2, 0.465, 1);
+  transition: all 1s cubic-bezier(0.375, 0.2, 0.465, 1);
+}
+
+#bloopericon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 25px;
+  left: 75px;
+  -webkit-transition: all 1s cubic-bezier(0.775, 0.4, 0.665, 1);
+  transition: all 1s cubic-bezier(0.775, 0.4, 0.665, 1);
+}
+
+#lakituicon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 25px;
+  -webkit-transition: all 1s cubic-bezier(0.575, 0.4, 0.165, 1);
+  transition: all 1s cubic-bezier(0.575, 0.4, 0.165, 1);
+}
+
+#resetgame {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 18px;
+  text-align: center;
+  border: 3px solid rgb(249, 243, 79);
+  background-color: rgb(255, 214, 67);
+  width: 130px;
+  height: 50px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+  color: rgb(197, 103, 31);
+  width: 7em;
+  height: 3em;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#resetgame:hover {
+  cursor: grab;
+  border: 3px solid rgb(27, 26, 4);
+}
+
+.alertbox {
+  display: none;
+  background-color: #fefefe;
+  background-image: url(/image/endinggif.gif);
+  background-size: cover;
+  border: 1px solid #888;
+  text-align: center;
+  margin: 0 auto;
+  position: fixed;
+  max-width: 28em;
+  max-height: 28em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+}
+
+.alertbox p {
+  font-size: 45px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  color: rgb(244, 255, 41);
+  font-weight: 900;
+  padding: 0 0.5em 0 0.5em;
+}
+
+.okbutton {
+  position: relative;
+  bottom: 10.5em;
+  left: 1.5em;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 3em;
+  cursor: pointer;
+  margin: 480px 0 0 75px;
+}
+
+.okbutton:hover {
+  font-size: 3.15em;
+  letter-spacing: 0.1em;
 }
