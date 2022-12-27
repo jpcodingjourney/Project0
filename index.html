@@ -33,9 +33,15 @@
         style="display: none"
       />
 
-      <div class="player mrmario" id="mrmario"><h2>Mario</h2></div>
+      <div class="player mrmario" id="mrmario">
+        <div class="marioname"><h2>Mario</h2></div>
+        <div class="marioscore" id="marioscore"><h2>0</h2></div>
+      </div>
 
-      <div class="player mryoshi" id="mryoshi"><h2>Yoshi</h2></div>
+      <div class="player mryoshi" id="mryoshi">
+        <div class="yoshiname"><h2>Yoshi</h2></div>
+        <div class="yoshiscore" id="yoshiscore"><h2>0</h2></div>
+      </div>
 
       <img
         id="greenmushroomicon"
@@ -77,11 +83,6 @@
       <button class="okbutton" id="okbutton3">❤️❤️❤️❤️</button>
     </div>
 
-    <div class="alertbox" id="alertbox4">
-      <p>Are you ready? Let's go!</p>
-      <button class="okbutton" id="okbutton4">❤️❤️❤️❤️</button>
-    </div>
-
     <audio id="mariosound">
       <source src="./sound/smb_jump-small.wav" type="audio/ogg" />
     </audio>
@@ -113,9 +114,11 @@
     <audio id="clickyoshisound">
       <source src="./sound/smb_stomp.wav" type="audio/ogg" />
     </audio>
+
     <div class="resetbutton" id="resettbuton">
       <button class="resetgame" id="resetgame">Reset Button</button>
     </div>
+
     <script src="./Script.js"></script>
   </body>
 </html>

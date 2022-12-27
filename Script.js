@@ -1,5 +1,9 @@
 const maxSlots = 9;
 const body = document.body;
+const marioScoreEle = document.getElementById("marioscore");
+const yoshiScoreEle = document.getElementById("yoshiscore");
+let marioScore = 0;
+let yoshiScore = 0;
 const winCombo = [
   [1, 2, 3],
   [4, 5, 6],
@@ -139,7 +143,7 @@ mrYoshi.addEventListener("click", function () {
   clickYoshiSound.play();
 });
 
-//Click game title will play some mario music and surprise!
+//By clicking the game title, it will play some mario music and surprise!
 const gameTitle = document.getElementById("gametitle");
 gameTitle.addEventListener("click", function () {
   titleSound.play();
@@ -202,10 +206,12 @@ const lakituIcon = document.getElementById("lakituicon");
 
 //Game function
 const gameStart = function () {
-  let gameEnded = false;
-  let marioComboCheck = [];
-  let yoshiComboCheck = [];
-  let gameTurn = 1;
+  gameEnded = false;
+  gameTurn = 1;
+  marioComboCheck = [];
+  yoshiComboCheck = [];
+  marioScoreEle.innerText = marioScore;
+  yoshiScoreEle.innerText = yoshiScore;
   marioInterval = null;
   yoshiInterval = null;
   redMushroomInterval = null;
@@ -250,6 +256,7 @@ const gameStart = function () {
             target.classList.add("yoshi");
             yoshiComboCheck.push(parseInt(target.classList[1]));
           }
+          console.log(marioComboCheck);
           for (let i = 0; i < winCombo.length; i++) {
             const checkMario = winCombo[i].every((value) => {
               return marioComboCheck.includes(value);
@@ -261,6 +268,7 @@ const gameStart = function () {
             const checkForWinner = function () {
               if (checkMario && !gameEnded) {
                 gameEnded = true;
+                marioScore++;
                 winSound.play();
                 document.getElementById("marioicon").style.display = "flex";
                 marioInterval = setInterval(moveGif, 500, marioIcon);
@@ -291,6 +299,7 @@ const gameStart = function () {
               }
               if (checkYoshi && !gameEnded) {
                 gameEnded = true;
+                yoshiScore++;
                 winSound.play();
                 document.getElementById("yoshiicon").style.display = "flex";
                 yoshiInterval = setInterval(moveGif, 500, yoshiIcon);
@@ -358,23 +367,17 @@ const gameStart = function () {
 };
 gameStart();
 
+//Reset function
 function resetGame() {
   gameEnded = true;
-  marioComboCheck = [];
-  yoshiComboCheck = [];
   let slots = document.querySelectorAll(".slot");
   for (let i = 0; i < maxSlots; i++) {
     let slot = slots[i];
     slot.classList.remove("mario");
     slot.classList.remove("yoshi");
-    slot.innerHTML = "";
   }
-
   gameStart();
   titleSound.pause();
 }
-//Reset button
-const resetButton = function () {
-  window.location.reload();
-};
-document.querySelector("#resetgame").onclick = resetButton;
+
+document.querySelector("#resetgame").onclick = resetGame;
