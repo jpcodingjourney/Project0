@@ -77,7 +77,7 @@ body {
   height: 12em;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/image/mario.ico");
+  background-image: url("./image/mario.ico");
 }
 
 .mrmario:hover {
@@ -105,7 +105,7 @@ body {
   height: 15.5em;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("/image/yoshi.png");
+  background-image: url("./image/yoshi.png");
 }
 
 .mryoshi:hover {
@@ -125,13 +125,13 @@ body {
 
 .mario {
   background-position: center;
-  background-image: url(/image/mario.ico);
+  background-image: url(./image/mario.ico);
   background-size: cover;
 }
 
 .yoshi {
   background-position: center;
-  background-image: url(/image/yoshi.png);
+  background-image: url(./image/yoshi.png);
   background-size: cover;
 }
 
@@ -287,7 +287,7 @@ body {
 .alertbox {
   display: none;
   background-color: #fefefe;
-  background-image: url(/image/endinggif.gif);
+  background-image: url(./image/endinggif.gif);
   background-size: cover;
   border: 1px solid #888;
   text-align: center;
