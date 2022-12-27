@@ -128,6 +128,8 @@ const clickMarioSound = document.querySelector("#clickmariosound");
 clickMarioSound.volume = 0.3;
 const clickYoshiSound = document.querySelector("#clickyoshisound");
 clickYoshiSound.volume = 0.7;
+const clickResetButton = document.querySelector("#clickresetbutton");
+clickResetButton.volume = 0.7;
 
 //Do not lower the volume for drawSound as it's already low
 const drawSound = document.querySelector("#drawsound");
@@ -268,6 +270,7 @@ const gameStart = function () {
             const checkForWinner = function () {
               if (checkMario && !gameEnded) {
                 gameEnded = true;
+                hideResetButton();
                 marioScore++;
                 winSound.play();
                 document.getElementById("marioicon").style.display = "flex";
@@ -299,6 +302,7 @@ const gameStart = function () {
               }
               if (checkYoshi && !gameEnded) {
                 gameEnded = true;
+                hideResetButton();
                 yoshiScore++;
                 winSound.play();
                 document.getElementById("yoshiicon").style.display = "flex";
@@ -334,6 +338,7 @@ const gameStart = function () {
           //Check draw
           if (gameTurn === maxSlots && !gameEnded) {
             gameEnded = true;
+            hideResetButton();
             drawSound.play();
             document.getElementById("marioicon").style.display = "flex";
             marioInterval = setInterval(moveGif, 500, marioIcon);
@@ -380,4 +385,7 @@ function resetGame() {
   titleSound.pause();
 }
 
-document.querySelector("#resetgame").onclick = resetGame;
+document.querySelector("#resetgame").onclick = function () {
+  clickResetButton.play();
+  resetGame();
+};
